@@ -15,9 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Basic Queue Operations", "B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maximum and Minimum Element", "Maximum and Minimum Element\Maximum and Minimum Element.csproj", "{3933C795-D190-4C92-9152-2DCE87F3CB3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fast Food", "Fast Food\Fast Food.csproj", "{73C566C7-1160-4C2E-BA89-E500D44241B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fast Food", "Fast Food\Fast Food.csproj", "{73C566C7-1160-4C2E-BA89-E500D44241B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fashion Botiques", "Fashion Botiques\Fashion Botiques.csproj", "{CC9E3CB7-B2BD-411B-99ED-89D7847DCCA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fashion Botiques", "Fashion Botiques\Fashion Botiques.csproj", "{CC9E3CB7-B2BD-411B-99ED-89D7847DCCA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetsAndDictionaries", "..\..\03. Sets and Dictionaries\SetsAndDictionaries\SetsAndDictionaries.csproj", "{E3D5F644-ECA1-4CE4-AF40-E704CB527201}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{CC9E3CB7-B2BD-411B-99ED-89D7847DCCA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC9E3CB7-B2BD-411B-99ED-89D7847DCCA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC9E3CB7-B2BD-411B-99ED-89D7847DCCA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3D5F644-ECA1-4CE4-AF40-E704CB527201}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3D5F644-ECA1-4CE4-AF40-E704CB527201}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3D5F644-ECA1-4CE4-AF40-E704CB527201}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3D5F644-ECA1-4CE4-AF40-E704CB527201}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
