@@ -73,6 +73,25 @@ SET Salary *= 1.12
 FROM Employees JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID
 WHERE Departments.Name IN ('Engineering', 'Tool Design', 'Marketing', 'Information Services')
 
-select Salary FROM EmployeesTin
+select Salary FROM Employees
 
---  21
+
+USE [Geography];
+SELECT PeakName FROM Peaks;
+
+
+SELECT TOP(30) CountryName, [Population] FROM Countries WHERE ContinentCode = 'EU' ORDER BY [Population] DESC;
+
+
+SELECT 
+CountryName, 
+CountryCode, 
+CASE 
+    WHEN CurrencyCode = 'EUR' THEN 'Euro'
+    ELSE 'Not Euro'
+END
+FROM Countries ORDER BY CountryName ASC
+
+
+Use Diablo;
+SELECT * FROM Characters ORDER BY [Name] ASC;
