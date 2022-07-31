@@ -6,7 +6,15 @@ namespace IteratorsAndComparators
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            int? a = 1;
+            a ??= 0;
+            Console.WriteLine(a);
+            // The same as
+            if (a == null)
+            {
+                a = 0;
+            }
+            Console.WriteLine(a);
         }
     }
 }
