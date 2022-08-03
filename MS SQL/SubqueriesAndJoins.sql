@@ -169,4 +169,61 @@ WHERE
 ORDER BY c.CountryName ASC
 
 -- #
+-- Hard
+
+SELECT ContinentCode, CurrencyCode, CurrencyUsage 
+FROM (
+	SELECT ContinentCode, CurrencyCode, COUNT(CurrencyCode) AS CurrencyUsage, 
+		DENSE_RANK() OVER(PARTITION BY ContinentCode ORDER BY COUNT(CurrencyCode) DESC) AS Ranked
+	FROM Countries
+	GROUP BY ContinentCode, CurrencyCode) AS k
+WHERE [Ranked] = 1 AND [CurrencyUsage] > 1
+ORDER BY ContinentCode
+
+-- #
+
+SELECT COUNT(*)
+FROM Countries c
+	LEFT JOIN MountainsCountries mc ON c.CountryCode = mc.CountryCode
+	LEFT JOIN Mountains m ON m.Id = mc.MountainId
+WHERE MountainId IS NULL
+
+-- #
+
+SELECT 
+	c.CountryName,
+	MAX(p.Elevation) AS HighestPeakElevation,
+	MAX(r.Length) AS LongestRiverLength
+FROM Countries c 
+	LEFT JOIN MountainsCountries mc ON c.CountryCode = mc.CountryCode
+	LEFT JOIN Mountains m ON m.Id = mc.MountainId
+	LEFT JOIN Peaks p ON p.MountainId = m.Id
+
+	LEFT JOIN CountriesRivers cr ON c.CountryCode = cr.CountryCode
+	LEFT JOIN Rivers r ON r.Id = cr.RiverId
+GROUP BY CountryName
+ORDER BY HighestPeakElevation DESC, LongestRiverLength DESC
+
+-- #
+
+SELECT TOP(1000) 
+	ISNULL(Country, '(no highest peak)'),
+	ISNULL([Highest Peak Name], '(no highest peak)'),
+	ISNULL([Highest Peak Elevation], 0),
+	ISNULL(Mountain, '(no mountain)')
+FROM 
+	(SELECT 
+		DENSE_RANK() OVER (PARTITION BY CountryName ORDER BY MAX(Elevation) DESC) AS [Rank],
+		CountryName AS Country, 
+		PeakName AS [Highest Peak Name],
+		MAX(Elevation) AS [Highest Peak Elevation], 
+		MountainRange Mountain
+	FROM Peaks p
+		RIGHT JOIN Mountains m ON m.Id = p.MountainId
+		RIGHT JOIN MountainsCountries mc ON mc.MountainId = m.Id
+		RIGHT JOIN Countries c ON c.CountryCode = mc.CountryCode
+	GROUP BY CountryName, PeakName, MountainRange) AS nfo
+WHERE Rank = 1
+ORDER BY Country ASC, [Highest Peak Elevation] DESC
+
 
