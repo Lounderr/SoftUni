@@ -168,16 +168,22 @@ GROUP BY DepartmentID, Salary
 
 -- #
 
-SELECT TOP(10) 
+SELECT TOP(10)
 	FirstName, 
 	LastName, 
 	DepartmentID 
-FROM Employees as emp
+FROM Employees AS e
 WHERE 
 	Salary >
 			(SELECT 
 				AVG(Salary) AS AvgDeptSalary
-			FROM Employees e
-			WHERE DepartmentID = emp.DepartmentID
-			GROUP BY e.DepartmentID)
+			FROM Employees
+			WHERE DepartmentID = e.DepartmentID
+			GROUP BY DepartmentID)
 ORDER BY DepartmentID
+
+
+
+
+
+
