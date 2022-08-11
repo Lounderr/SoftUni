@@ -111,17 +111,52 @@ EXEC usp_DeleteEmployeesFromDepartment 1;
 
 GO
 
+-- #
 
+CREATE PROCEDURE usp_GetHoldersFullName
+AS
+BEGIN
+	SELECT FirstName + ' ' + LastName AS [Full Name]
+	FROM Bank.dbo.AccountHolders
+END
 
+GO
 
+-- #
+USE Bank;
 
+GO
 
+CREATE PROCEDURE usp_GetHoldersWithBalanceHigherThan (@Number INT)
+AS
+BEGIN
+	SELECT 
+		FirstName, 
+		LastName
+	FROM AccountHolders ah
+		JOIN Accounts a ON a.AccountHolderId = ah.Id
+	GROUP BY ah.Id,	FirstName, LastName
+	HAVING SUM(a.Balance) > @Number
+END
 
+GO
 
+CREATE OR ALTER FUNCTION ufn_CalculateFutureValue 
+(
+	@Sum DECIMAL(10, 4), 
+	@YearlyInterestRate FLOAT, 
+	@Years INT
+)
+RETURNS DECIMAL(10, 4)
+AS
+BEGIN
+	DECLARE @FV DECIMAL(10, 4)
 
+	SET @FV = @Sum * (POWER(1 + @YearlyInterestRate, @Years))
 
+	RETURN ROUND(@FV, 4)
+END
 
+GO
 
-
-
-
+SELECT dbo.ufn_CalculateFutureValue(1000, 0.1, 5)
