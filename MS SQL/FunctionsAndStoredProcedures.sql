@@ -160,3 +160,64 @@ END
 GO
 
 SELECT dbo.ufn_CalculateFutureValue(1000, 0.1, 5)
+
+GO
+
+-- #
+
+USE Bank
+GO
+
+CREATE PROCEDURE usp_CalculateFutureValueForAccount
+(
+	@AccountId INT,
+	@InterestRate FLOAT
+)
+AS
+BEGIN
+	SELECT 
+		a.Id AS [Account Id],
+		FirstName AS [First Name],
+		LastName AS [Last Name],
+		a.Balance AS [Current Balance],
+		dbo.ufn_CalculateFutureValue(a.Balance, @InterestRate, 5) AS [Balance in 5 years]
+	FROM AccountHolders ah
+		JOIN Accounts a ON a.AccountHolderId = ah.Id
+	WHERE a.Id = @AccountId
+END
+
+GO
+
+EXEC usp_CalculateFutureValueForAccount 1, 0.1
+
+GO
+
+-- #
+
+USE Diablo
+
+SELECT * FROM dbo.UsersGames
+
+GO
+
+CREATE FUNCTION ufn_CashInUsersGames 
+(
+	@GameName NVARCHAR(MAX)	
+)
+RETURNS TABLE
+AS 
+RETURN 
+	(
+	SELECT SUM(Cash) AS SumCash
+	FROM
+		(
+		SELECT
+			ROW_NUMBER() OVER (ORDER BY ug.Cash DESC) AS RowNum, 
+			Cash,
+			Name
+		FROM UsersGames ug
+			JOIN Games g ON ug.GameId = g.Id
+		) AS k
+	WHERE RowNum % 2 != 0 AND 'Love in a mist' = k.Name
+	)
+
