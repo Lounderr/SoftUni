@@ -115,16 +115,76 @@ SELECT a.Id, a.Manufacturer, a.FlightHours, COUNT(fd.Id) AS FlightDestinationsCo
 FROM Aircraft a
 	JOIN FlightDestinations fd ON fd.AircraftId = a.Id
 GROUP BY a.Id, a.Manufacturer, a.FlightHours
-HAVING COUNT(fd.Id) > 2
+HAVING COUNT(fd.Id) >= 2
 ORDER BY COUNT(fd.Id) DESC, a.Id ASC
 
 -- #
 
-SELECT * 
-FROM Passengers
+SELECT FullName, COUNT(AircraftId) AS CountOfAircraft, SUM(TicketPrice) AS TotalPayed
+FROM Passengers p
+	JOIN FlightDestinations fd ON fd.PassengerId = p.Id
+	JOIN Aircraft a ON a.Id = fd.AircraftId
+WHERE SUBSTRING(p.FullName, 2, 1) = 'a'
+GROUP BY FullName
+HAVING COUNT(AircraftId) > 1
+ORDER BY FullName
 
+-- #
 
+SELECT AirportName, Start AS DayTime, TicketPrice, FullName, Manufacturer, Model
+FROM FlightDestinations fd
+	JOIN Airports a ON a.Id = fd.AirportId
+	JOIN Passengers p ON fd.PassengerId = p.Id
+	JOIN Aircraft ac ON ac.Id = fd.AircraftId
 
+WHERE 
+	(DATEPART(HOUR, Start) BETWEEN 6 AND 20) 
+	AND 
+	TicketPrice > 2500
+ORDER BY Model ASC
 
+-- #
+GO
 
+CREATE FUNCTION udf_FlightDestinationsByEmail(@email NVARCHAR(150))
+RETURNS INT 
+AS 
+BEGIN
+	RETURN 
+	(
+		SELECT COUNT(fd.Id) 
+		FROM FlightDestinations fd 
+			JOIN Passengers p ON fd.PassengerId = p.Id 
+		WHERE p.Email = @email
+	)
+END
 
+-- #
+GO
+
+CREATE PROCEDURE usp_SearchByAirportName(@airportName NVARCHAR(70))
+AS
+BEGIN
+	SELECT 
+		AirportName, 
+		FullName, 
+		(
+		CASE
+			WHEN TicketPrice <= 400 THEN 'LOW'
+			WHEN TicketPrice BETWEEN 401 AND 1500 THEN 'Medium'
+			WHEN TicketPrice > 1501 THEN 'High'
+		END
+		) AS LevelOfTicketPrice, 
+		Manufacturer, 
+		Condition, 
+		TypeName
+	FROM Airports ap
+		JOIN FlightDestinations fd ON ap.Id = fd.AirportId
+		JOIN Passengers p ON p.Id = fd.PassengerId
+		JOIN Aircraft ac ON ac.Id = fd.AircraftId
+		JOIN AircraftTypes act ON act.Id = ac.TypeId
+	WHERE AirportName = @airportName
+	ORDER BY Manufacturer ASC, FullName ASC
+END
+
+EXEC usp_SearchByAirportName 'Sir Seretse Khama International Airport'
