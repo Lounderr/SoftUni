@@ -128,4 +128,142 @@ GO
 
 -- #
 
--- Part 2
+-- 1.
+
+USE Diablo;
+
+SELECT * FROM UsersGames
+
+GO
+
+CREATE TRIGGER tr_RestrictItemsWithHigherLevel
+ON UserGameItems INSTEAD OF INSERT
+AS
+BEGIN
+	INSERT INTO UserGameItems 
+	SELECT ins.ItemId, ins.UserGameId 
+	FROM inserted ins
+		JOIN Items i ON ins.ItemId = i.Id
+		JOIN UsersGames ug ON ug.Id = ins.UserGameId
+	WHERE ug.Level >= i.MinLevel
+END
+
+GO
+
+-- 2.
+
+UPDATE UsersGames
+	SET Cash = Cash + 50000
+	WHERE 
+		GameId = (SELECT GameId FROM Games WHERE Name = 'Bali') AND
+		UserId IN 
+			(
+			SELECT Id 
+			FROM Users 
+			WHERE Username 
+				IN (
+					'baleremuda', 
+					'loosenoise', 
+					'inguinalself', 
+					'buildingdeltoid', 
+					'monoxidecos'
+					)
+			)
+
+-- OR
+
+UPDATE UsersGames
+	SET Cash = Cash + 50000
+	FROM UsersGames ug
+		JOIN Games g ON g.Id = ug.GameId 
+		JOIN Users u ON u.Id = ug.UserId
+	WHERE 
+		g.Name = 'Bali' AND
+		Username IN (
+					'baleremuda', 
+					'loosenoise', 
+					'inguinalself', 
+					'buildingdeltoid', 
+					'monoxidecos'
+					)
+
+GO
+
+INSERT INTO UserGameItems 
+	SELECT ug.Id, i.Id 
+	FROM UsersGames ug
+		JOIN Users u ON ug.UserId = u.Id
+		JOIN Games g ON ug.GameId = g.Id
+		CROSS JOIN Items i
+	WHERE Username
+		 IN (
+			'baleremuda', 
+			'loosenoise', 
+			'inguinalself', 
+			'buildingdeltoid', 
+			'monoxidecos'
+			)		
+	AND
+	g.Name = 'Bali'
+	AND 
+	(i.Id BETWEEN 251 AND 299 OR i.ID BETWEEN 501 AND 539)
+
+
+-- #
+
+-- #
+
+USE SoftUni
+
+GO
+
+CREATE OR ALTER PROC usp_AssignProject(@employeeId INT, @projectId INT)
+AS
+BEGIN TRANSACTION
+	IF (SELECT COUNT(*) FROM EmployeesProjects WHERE EmployeeID = @employeeId) > 3
+	BEGIN
+		ROLLBACK;
+		THROW 50011, 'The employee has too many projects!', 1
+		RETURN
+	END
+
+	INSERT EmployeesProjects VALUES (@employeeId, @projectId)
+COMMIT
+
+-- #
+
+Create table Deleted_Employees (
+	EmployeeId INT PRIMARY KEY, 
+	FirstName NVARCHAR(80), 
+	LastName NVARCHAR(80), 
+	MiddleName NVARCHAR(80), 
+	JobTitle NVARCHAR(80), 
+	DepartmentId INT, 
+	Salary DECIMAL(10, 4)
+)
+
+GO
+
+CREATE OR ALTER TRIGGER SaveDeletedEmployees
+ON Employees FOR DELETE
+AS
+BEGIN
+	INSERT INTO Deleted_Employees (
+		EmployeeId,
+		FirstName,
+		LastName,
+		MiddleName,
+		JobTitle,
+		DepartmentId,
+		Salary
+	) 
+	SELECT 
+		EmployeeId,
+		FirstName,
+		LastName,
+		MiddleName,
+		JobTitle,
+		DepartmentId,
+		Salary
+	FROM deleted
+END
