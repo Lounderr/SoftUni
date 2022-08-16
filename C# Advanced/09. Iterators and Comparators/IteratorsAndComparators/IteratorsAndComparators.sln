@@ -5,15 +5,19 @@ VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IteratorsAndComparators", "IteratorsAndComparators\IteratorsAndComparators.csproj", "{BAD21E6F-2D64-47AC-B6B9-5B9D3999ED2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P01.ListyIterator", "P01.ListyIterator\P01.ListyIterator.csproj", "{A79EA09F-C803-4A4D-B203-A841D0CDF7AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P01.ListyIterator", "P01.ListyIterator\P01.ListyIterator.csproj", "{A79EA09F-C803-4A4D-B203-A841D0CDF7AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P02.Collection", "P02.Collection\P02.Collection.csproj", "{2D723D6C-88E6-456B-A5EB-18FC984057BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P02.Collection", "P02.Collection\P02.Collection.csproj", "{2D723D6C-88E6-456B-A5EB-18FC984057BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P03.Stack", "P03.Stack\P03.Stack.csproj", "{C3190455-8DE8-4AEA-ABDC-CEF6B9999E0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P03.Stack", "P03.Stack\P03.Stack.csproj", "{C3190455-8DE8-4AEA-ABDC-CEF6B9999E0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P04.Froggy", "P04.Froggy\P04.Froggy.csproj", "{9D789F54-77A1-48A3-8C6A-C8874A4F84D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P04.Froggy", "P04.Froggy\P04.Froggy.csproj", "{9D789F54-77A1-48A3-8C6A-C8874A4F84D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P05.ComparingObjects", "P05.ComparingObjects\P05.ComparingObjects.csproj", "{29648C9D-EBE4-48BF-9E29-3EC704051136}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P05.ComparingObjects", "P05.ComparingObjects\P05.ComparingObjects.csproj", "{29648C9D-EBE4-48BF-9E29-3EC704051136}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P06.EqualityLogic", "P06.EqualityLogic\P06.EqualityLogic.csproj", "{96D1D434-B0D9-4EEF-B589-28720B700E03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P07.CustomLinkedList", "P07.CustomLinkedList\P07.CustomLinkedList.csproj", "{D0FA5FE1-8780-434C-8ACA-21E469FD0D68}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{29648C9D-EBE4-48BF-9E29-3EC704051136}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29648C9D-EBE4-48BF-9E29-3EC704051136}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29648C9D-EBE4-48BF-9E29-3EC704051136}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96D1D434-B0D9-4EEF-B589-28720B700E03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96D1D434-B0D9-4EEF-B589-28720B700E03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96D1D434-B0D9-4EEF-B589-28720B700E03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96D1D434-B0D9-4EEF-B589-28720B700E03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0FA5FE1-8780-434C-8ACA-21E469FD0D68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0FA5FE1-8780-434C-8ACA-21E469FD0D68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0FA5FE1-8780-434C-8ACA-21E469FD0D68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0FA5FE1-8780-434C-8ACA-21E469FD0D68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
