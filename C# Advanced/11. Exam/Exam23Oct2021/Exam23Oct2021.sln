@@ -5,7 +5,9 @@ VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P01.FoodFinder", "Exam23Oct2021\P01.FoodFinder.csproj", "{3FC5B3AC-EE1C-4841-A689-A472934FEB84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P02.PawnWars", "P02.PawnWars\P02.PawnWars.csproj", "{FEFF006A-075E-42AC-92D6-EBFFD28D2048}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P02.PawnWars", "P02.PawnWars\P02.PawnWars.csproj", "{FEFF006A-075E-42AC-92D6-EBFFD28D2048}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P03.StockMarket", "P03.StockMarket\P03.StockMarket.csproj", "{F364AFD5-2328-467A-AAD5-9EA261CDD224}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{FEFF006A-075E-42AC-92D6-EBFFD28D2048}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEFF006A-075E-42AC-92D6-EBFFD28D2048}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEFF006A-075E-42AC-92D6-EBFFD28D2048}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F364AFD5-2328-467A-AAD5-9EA261CDD224}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F364AFD5-2328-467A-AAD5-9EA261CDD224}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F364AFD5-2328-467A-AAD5-9EA261CDD224}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F364AFD5-2328-467A-AAD5-9EA261CDD224}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

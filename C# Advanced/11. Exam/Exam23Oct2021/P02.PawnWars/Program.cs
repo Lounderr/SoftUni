@@ -25,7 +25,6 @@ namespace P02.PawnWars
             // a) they are diagonal to each other -> next wins 
             // b) one reaches the end -> current wins
 
-
             // Fill matrix and get pawn positions
             Point wPawn = new Point(-1, -1);
             Point bPawn = new Point(-1, -1);
