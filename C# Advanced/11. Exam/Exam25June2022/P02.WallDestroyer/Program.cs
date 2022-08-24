@@ -60,6 +60,7 @@ namespace P02.WallDestroyer
 
             int holes = 1;
             int rods = 0;
+            bool electrocuted = false;
 
             string cmd = Console.ReadLine();
             while (cmd != "End")
@@ -67,59 +68,61 @@ namespace P02.WallDestroyer
                 if (cmd == "up")
                 {
                     Point nextPos = new Point(vanko.Row - 1, vanko.Col);
-                    if (TakeTurn(nextPos))
-                        break;
+                    TakeTurn(nextPos);
                 }
                 else if (cmd == "down")
                 {
                     Point nextPos = new Point(vanko.Row + 1, vanko.Col);
-                    if (TakeTurn(nextPos))
-                        break;
+                    TakeTurn(nextPos);
                 }
                 else if (cmd == "left")
                 {
                     Point nextPos = new Point(vanko.Row, vanko.Col - 1);
-                    if (TakeTurn(nextPos))
-                        break;
+                    TakeTurn(nextPos);
                 }
                 else if (cmd == "right")
                 {
                     Point nextPos = new Point(vanko.Row, vanko.Col + 1);
-                    if (TakeTurn(nextPos))
-                        break;
+                    TakeTurn(nextPos);
+                }
+
+                if (electrocuted)
+                {
+                    break;
                 }
 
                 cmd = Console.ReadLine();
             }
 
-            End();
-
-            void End(bool electrocuted = false)
+            if (electrocuted)
             {
-                if (electrocuted)
-                {
-                    Console.WriteLine($"Vanko hit a rod! Vanko managed to make {holes} hole(s) and he hit only {rods} rod(s).");
-                }
+                Console.WriteLine($"Vanko got electrocuted, but he managed to make {holes} hole(s).");
+            }
+            else
+            {
+                Console.WriteLine($"Vanko managed to make {holes} hole(s) and he hit only {rods} rod(s).");
 
-                for (int row = 0; row < n; row++)
-                {
-                    for (int col = 0; col < n; col++)
-                    {
-                        Console.Write(matrix[row, col]);
-                    }
-                    Console.WriteLine();
-                }
-
-                Environment.Exit(0);
             }
 
-            bool TakeTurn(Point nextPos)
+            for (int row = 0; row < n; row++)
+            {
+                for (int col = 0; col < n; col++)
+                {
+                    Console.Write(matrix[row, col]);
+                }
+                Console.WriteLine();
+            }
+
+
+
+
+            void TakeTurn(Point nextPos)
             {
                 if (nextPos.Row >= matrix.GetLength(0) || nextPos.Col >= matrix.GetLength(1) || nextPos.Row < 0 || nextPos.Col < 0)
                 {
-                    return false;
+                    return;
                 }
-                if (matrix[nextPos.Row, nextPos.Col] == '-')
+                else if (matrix[nextPos.Row, nextPos.Col] == '-')
                 {
                     matrix[vanko.Row, vanko.Col] = '*';
                     matrix[nextPos.Row, nextPos.Col] = 'V';
@@ -144,25 +147,19 @@ namespace P02.WallDestroyer
 
                     holes++;
 
-                    Console.WriteLine($"Vanko got electrocuted, but he managed to make {holes} hole(s).");
-
-                    End(true);
-                    return true;
+                    electrocuted = true;
                 }
                 else if (matrix[nextPos.Row, nextPos.Col] == '*')
                 {
                     matrix[vanko.Row, vanko.Col] = '*';
+                    matrix[nextPos.Row, nextPos.Col] = 'V'; // !
 
                     vanko.Row = nextPos.Row;
                     vanko.Col = nextPos.Col;
 
-                    Console.WriteLine($"The wall is already destroyed at position [{vanko.Row}, {vanko.Row}]!");
+                    Console.WriteLine($"The wall is already destroyed at position [{vanko.Row}, {vanko.Col}]!");
                 }
-
-                return false;
             }
-
-
         }
     }
 }
