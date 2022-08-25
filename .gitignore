@@ -536,6 +536,8 @@ appsettings.Production.json
 **/wwwroot/lib/
 *.min.css
 *.min.js
+*.zip
+*.rar
 
 
 ### VisualStudio Patch ###
