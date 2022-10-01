@@ -13,9 +13,9 @@ namespace Е02.VehiclesExtension
 
         public override bool Drive(double distance)
         {
-            if (0 <= FuelQuantity - distance * FuelConsumption + 1.4)
+            if (0 <= FuelQuantity - distance * (FuelConsumption + 1.4))
             {
-                FuelQuantity = FuelQuantity - distance * FuelConsumption + 1.4;
+                FuelQuantity = FuelQuantity - distance * (FuelConsumption + 1.4);
                 return true;
             }
 

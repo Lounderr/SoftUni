@@ -12,6 +12,10 @@ namespace Е02.VehiclesExtension
             double carConsumption = double.Parse(carInfo[2]);
             double carTankCapacity = double.Parse(carInfo[3]);
 
+            if (carFuel > carTankCapacity)
+            {
+                Console.WriteLine($"Cannot fit {carFuel} fuel in the tank");
+            }
 
             Car car = new Car(carFuel, carConsumption, carTankCapacity);
 
@@ -20,7 +24,12 @@ namespace Е02.VehiclesExtension
             string[] truckInfo = Console.ReadLine().Split();
             double truckFuel = double.Parse(truckInfo[1]);
             double truckConsumption = double.Parse(truckInfo[2]);
-            double truckTankCapacity = double.Parse(carInfo[3]);
+            double truckTankCapacity = double.Parse(truckInfo[3]);
+
+            if (truckFuel > truckTankCapacity)
+            {
+                Console.WriteLine($"Cannot fit {truckFuel} fuel in the tank");
+            }
 
             Truck truck = new Truck(truckFuel, truckConsumption, truckTankCapacity);
 
@@ -30,6 +39,11 @@ namespace Е02.VehiclesExtension
             double busFuel = double.Parse(busInfo[1]);
             double busConsumption = double.Parse(busInfo[2]);
             double busTankCapacity = double.Parse(busInfo[3]);
+
+            if (busFuel > busTankCapacity)
+            {
+                Console.WriteLine($"Cannot fit {busFuel} fuel in the tank");
+            }
 
             Bus bus = new Bus(busFuel, busConsumption, busTankCapacity);
 
@@ -84,7 +98,14 @@ namespace Е02.VehiclesExtension
 
                     if (cmd[1] == "Bus")
                     {
-                        bus.DriveEmpty(distance);
+                        if (bus.DriveEmpty(distance))
+                        {
+                            Console.WriteLine($"Bus travelled {distance} km");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Bus needs refueling");
+                        }
                     }
                 }
                 else if (cmd[0] == "Refuel")
@@ -95,23 +116,35 @@ namespace Е02.VehiclesExtension
                     {
                         Console.WriteLine($"Fuel must be a positive number");
                     }
-
-                    if (cmd[1] == "Car")
+                    
+                    else if (cmd[1] == "Car")
                     {
                         car.Refuel(liters);
+                        if (liters <= car.TankCapacity)
+                        {
+                            Console.WriteLine($"Cannot fit {liters} fuel in the tank");
+                        }
                     }
                     else if (cmd[1] == "Truck")
                     {
                         truck.Refuel(liters);
+                        if (liters <= truck.TankCapacity)
+                        {
+                            Console.WriteLine($"Cannot fit {liters} fuel in the tank");
+                        }
                     }
                     else if (cmd[1] == "Bus")
                     {
                         bus.Refuel(liters);
+                        if (liters <= bus.TankCapacity)
+                        {
+                            Console.WriteLine($"Cannot fit {liters} fuel in the tank");
+                        }
                     }
                 }
             }
 
-            Console.WriteLine($"Car: {car.FuelQuantity:f2}\nTruck: {truck.FuelQuantity:f2}");
+            Console.WriteLine($"Car: {car.FuelQuantity:f2}\nTruck: {truck.FuelQuantity:f2}\nBus: {bus.FuelQuantity:f2}");
         }
     }
 }

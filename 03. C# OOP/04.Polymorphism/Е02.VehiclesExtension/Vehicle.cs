@@ -39,7 +39,7 @@ namespace Е02.VehiclesExtension
 
         public virtual bool Refuel(double refuelQuantity)
         {
-            if (FuelQuantity + refuelQuantity > TankCapacity)
+            if (FuelQuantity + refuelQuantity <= TankCapacity)
             {
                 FuelQuantity += refuelQuantity;
                 return true;
