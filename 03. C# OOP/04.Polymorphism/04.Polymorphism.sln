@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E01.Vehicles", "E01.Vehicles\E01.Vehicles.csproj", "{DBFC3400-FB20-435B-8999-D07DE579664C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E01.Vehicles", "E01.Vehicles\E01.Vehicles.csproj", "{DBFC3400-FB20-435B-8999-D07DE579664C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Е02.VehiclesExtension", "Е02.VehiclesExtension\Е02.VehiclesExtension.csproj", "{FA866EBC-D875-4BBA-8459-A434B704CE72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E02.VehiclesExtension", "Е02.VehiclesExtension\E02.VehiclesExtension.csproj", "{FA866EBC-D875-4BBA-8459-A434B704CE72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E03.Raiding", "E03.Raiding\E03.Raiding.csproj", "{C3AE48E7-6328-4C97-8F53-B755E6A88AF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{FA866EBC-D875-4BBA-8459-A434B704CE72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA866EBC-D875-4BBA-8459-A434B704CE72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA866EBC-D875-4BBA-8459-A434B704CE72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3AE48E7-6328-4C97-8F53-B755E6A88AF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3AE48E7-6328-4C97-8F53-B755E6A88AF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3AE48E7-6328-4C97-8F53-B755E6A88AF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3AE48E7-6328-4C97-8F53-B755E6A88AF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
