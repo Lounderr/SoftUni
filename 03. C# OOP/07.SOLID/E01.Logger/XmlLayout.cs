@@ -4,7 +4,7 @@ namespace E01.Logger
 {
     internal class XmlLayout : ILayout
     {
-        public string Generate(string dateTime, string reportLevel, string message)
+        public string Generate(string dateTime, ReportLevel reportLevel, string message)
         {
             StringBuilder xmlString = new StringBuilder();
 

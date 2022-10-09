@@ -17,9 +17,9 @@ namespace E01.Logger
 
         public int MessagesAppended { get; private set; }
 
-        public void Append(string dateTime, string reportLevel, string message)
+        public void Append(string dateTime, ReportLevel reportLevel, string message)
         {
-            if (Enum.Parse<ReportLevel>(reportLevel) >= ReportLevel)
+            if (reportLevel >= ReportLevel)
             {
                 string layoutResult = Layout.Generate(dateTime, reportLevel, message);
                 Console.Write(layoutResult);

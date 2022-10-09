@@ -19,7 +19,7 @@ namespace E01.Logger
         {
             foreach (var appender in Appenders)
             {
-                appender.Append(dateTime, "INFO", message);
+                appender.Append(dateTime, ReportLevel.INFO, message);
             }
         }
 
@@ -27,7 +27,7 @@ namespace E01.Logger
         {
             foreach (var appender in Appenders)
             {
-                appender.Append(dateTime, "WARNING", message);
+                appender.Append(dateTime, ReportLevel.WARNING, message);
             }
         }
 
@@ -35,7 +35,7 @@ namespace E01.Logger
         {
             foreach (var appender in Appenders)
             {
-                appender.Append(dateTime, "ERROR", message);
+                appender.Append(dateTime, ReportLevel.ERROR, message);
             }
         }
 
@@ -43,7 +43,7 @@ namespace E01.Logger
         {
             foreach (var appender in Appenders)
             {
-                appender.Append(dateTime, "CRITICAL", message);
+                appender.Append(dateTime, ReportLevel.CRITICAL, message);
             }
         }
 
@@ -51,7 +51,7 @@ namespace E01.Logger
         {
             foreach (var appender in Appenders)
             {
-                appender.Append(dateTime, "FATAL", message);
+                appender.Append(dateTime, ReportLevel.FATAL, message);
             }
         }
     }

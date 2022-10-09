@@ -4,7 +4,7 @@ namespace E01.Logger
 {
     internal interface ILogger
     {
-        public List<IAppender> Appenders { get; }
+        List<IAppender> Appenders { get; }
 
         void Info(string dateTime, string message);
 
