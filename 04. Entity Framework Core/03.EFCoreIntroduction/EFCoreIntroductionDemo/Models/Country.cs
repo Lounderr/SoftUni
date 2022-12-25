@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace EFCoreIntroductionDemo;
+namespace SoftUni.Models;
 
 public partial class Country
 {

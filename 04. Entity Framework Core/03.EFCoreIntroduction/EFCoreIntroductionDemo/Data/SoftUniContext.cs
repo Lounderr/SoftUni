@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using SoftUni.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace EFCoreIntroductionDemo;
+namespace SoftUni.Data;
 
 public partial class SoftUniContext : DbContext
 {
@@ -105,11 +106,11 @@ public partial class SoftUniContext : DbContext
 
             entity.HasMany(d => d.Projects).WithMany(p => p.Employees)
                 .UsingEntity<Dictionary<string, object>>(
-                    "EmployeesProject",
+                    "EmployeesProjects",
                     r => r.HasOne<Project>().WithMany()
                         .HasForeignKey("ProjectId")
                         .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_EmployeesProjects_Projects"),
+                        .HasConstraintName("EmployeesProjects_Projects"),
                     l => l.HasOne<Employee>().WithMany()
                         .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.ClientSetNull)
