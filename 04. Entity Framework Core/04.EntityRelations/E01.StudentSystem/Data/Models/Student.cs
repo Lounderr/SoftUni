@@ -14,8 +14,8 @@ namespace P01_StudentSystem.Data.Models
     {
         public Student()
         {
-            this.HomeworkSubmissions = new List<Homework>();
-            this.CourseEnrollments = new List<StudentCourse>();
+            this.HomeworkSubmissions = new HashSet<Homework>();
+            this.CourseEnrollments = new HashSet<StudentCourse>();
         }
 
         public int StudentId { get; set; }

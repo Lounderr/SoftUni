@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,6 +13,14 @@ namespace P01_StudentSystem.Data.Models
 {
     public class Course
     {
+        public Course()
+        {
+            StudentsEnrolled = new HashSet<StudentCourse>();
+            Resources = new HashSet<Resource>();
+            Homework = new HashSet<Homework>();
+
+        }
+
         public int CourseId { get; set; }
 
         [Unicode]
@@ -22,7 +31,7 @@ namespace P01_StudentSystem.Data.Models
 
         [Column(TypeName = "date")]
         public DateTime StartDate { get; set; }
-        
+
         [Column(TypeName = "date")]
         public DateTime EndDate { get; set; }
 
