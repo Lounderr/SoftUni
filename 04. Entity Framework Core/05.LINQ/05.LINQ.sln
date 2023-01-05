@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.LINQ", "05.LINQ\05.LINQ.csproj", "{42B753A9-76EF-4DA5-B300-11F43972F41B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E01.MusicHub", "E01.MusicHub\E01.MusicHub.csproj", "{B559A567-7896-45EA-A957-9CA2E45BCE6E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42B753A9-76EF-4DA5-B300-11F43972F41B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42B753A9-76EF-4DA5-B300-11F43972F41B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42B753A9-76EF-4DA5-B300-11F43972F41B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42B753A9-76EF-4DA5-B300-11F43972F41B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B559A567-7896-45EA-A957-9CA2E45BCE6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B559A567-7896-45EA-A957-9CA2E45BCE6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B559A567-7896-45EA-A957-9CA2E45BCE6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B559A567-7896-45EA-A957-9CA2E45BCE6E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CB87FC16-A379-4CF2-92BA-D2A0881F0ECA}
+	EndGlobalSection
+EndGlobal
