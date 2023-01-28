@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09.XMLProcessing", "09.XMLProcessing\09.XMLProcessing.csproj", "{590D3DAB-C509-48E3-9B6B-528CC0F66E47}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{590D3DAB-C509-48E3-9B6B-528CC0F66E47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{590D3DAB-C509-48E3-9B6B-528CC0F66E47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{590D3DAB-C509-48E3-9B6B-528CC0F66E47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{590D3DAB-C509-48E3-9B6B-528CC0F66E47}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6D38F4C7-4A8B-4A51-952E-01FC17344502}
+	EndGlobalSection
+EndGlobal
